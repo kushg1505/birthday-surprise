@@ -1,25 +1,22 @@
 const targetDate = new Date("May 15, 2026 00:00:00").getTime();
 
-const timer = setInterval(function(){
+setInterval(() => {
 
 const now = new Date().getTime();
-const distance = targetDate - now;
+const gap = targetDate - now;
 
-if(distance < 0){
-clearInterval(timer);
-document.getElementById("countdown").style.display="none";
-document.getElementById("enterBtn").classList.remove("hidden");
-return;
+if(gap <= 0){
+window.location.href = "password.html";
 }
 
-const days = Math.floor(distance / (1000*60*60*24));
-const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-const seconds = Math.floor((distance % (1000*60)) / 1000);
+const days = Math.floor(gap / (1000*60*60*24));
+const hours = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+const mins = Math.floor((gap % (1000*60*60)) / (1000*60));
+const secs = Math.floor((gap % (1000*60)) / 1000);
 
-document.getElementById("days").innerText = days;
-document.getElementById("hours").innerText = hours;
-document.getElementById("minutes").innerText = minutes;
-document.getElementById("seconds").innerText = seconds;
+document.getElementById("days").innerText = String(days).padStart(2,'0');
+document.getElementById("hours").innerText = String(hours).padStart(2,'0');
+document.getElementById("minutes").innerText = String(mins).padStart(2,'0');
+document.getElementById("seconds").innerText = String(secs).padStart(2,'0');
 
 },1000);
