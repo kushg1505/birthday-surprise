@@ -1,3 +1,23 @@
+function createConfetti() {
+  const container = document.getElementById("confetti");
+  const colors = ['#ffb3d1','#a8c8ff','#c8a0e8','#ffcc70','#7ab3ff','#f598c0','#b8f0e8'];
+  for (let i = 0; i < 35; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    piece.style.left = Math.random() * 100 + "%";
+    piece.style.top = -(Math.random() * 20) + "%";
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = (7 + Math.random() * 8) + "s";
+    piece.style.animationDelay = (Math.random() * 10) + "s";
+    const size = 4 + Math.random() * 6;
+    piece.style.width = size + "px";
+    piece.style.height = size + "px";
+    piece.style.borderRadius = Math.random() > 0.5 ? "50%" : "2px";
+    container.appendChild(piece);
+  }
+}
+createConfetti();
+
 const targetDate = new Date("May 15, 2026 00:00:00").getTime();
 
 setInterval(() => {
