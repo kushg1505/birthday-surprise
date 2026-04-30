@@ -291,6 +291,8 @@ font-size:12px;
 /* RESPONSIVE */
 
 @media(max-width:768px){
+body{background-image:url('mobile-bg.png');}
+
 h1{font-size:38px;}
 .subtitle{font-size:14px;}
 .card{padding:28px 20px;}
